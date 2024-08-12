@@ -22,7 +22,8 @@ class ShopinvaderProduct(models.Model):
             parent_names.append(parent_id.name)
             parent_id = parent_id.parent_id
         return {
-            "level": categ.level + 1,
+            "id": categ.id,
+            "level": categ.level,
             "value": categ.name,
             "ancestors": parent_names,
             "order": categ.sequence,
