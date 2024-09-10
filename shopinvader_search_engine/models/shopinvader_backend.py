@@ -36,9 +36,10 @@ class ShopinvaderBackend(models.Model):
         return True
 
     def clear_index(self):
+        msg = False
         for index in self.mapped("se_backend_id.index_ids"):
-            index.clear_index()
-        return True
+            msg = index.clear_index()
+        return msg
 
     def add_missing_index(self):
         _logger.warning("DEPRECATED: add_missing_index, use action_add_missing_indexes")
